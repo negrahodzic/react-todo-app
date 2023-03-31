@@ -7,10 +7,11 @@
  * @param handleSeeSubtasks Function that handles the display of subtasks when the "See subtasks" button is clicked.
  */
 
-import React from 'react';
 import { Task } from '../../types/types';
 import { MessageType } from "../Message/Message";
-import TaskCard from './TaskCard';
+import TaskCard from '../TaskCard/TaskCard';
+
+import styles from './TaskList.module.css';
 
 interface TaskListProps {
   tasks: Task[];
@@ -19,56 +20,50 @@ interface TaskListProps {
   setMessageKey: (key: number) => void;
   handleSeeSubtasks: (subtasks: Task[], parentTask: Task) => void;
 }
-
-const TaskList: React.FC<TaskListProps> = ({
-  tasks,
-  setMessage,
-  setMessageType,
-  setMessageKey,
-  handleSeeSubtasks
-}) => {
+function TaskList(props: TaskListProps) {
   // Filters the tasks into incomplete and completed tasks
-  const incompleteTasks = tasks.filter((task: Task) => !task.status);
-  const completedTasks = tasks.filter((task: Task) => task.status);
+  const incompleteTasks = props.tasks.filter((task: Task) => !task.status);
+  const completedTasks = props.tasks.filter((task: Task) => task.status);
 
   return (
     <>
-      <div className="tasks-container">
+      <div className={styles.incompleteTasksContainer}>
         <h2>Incomplete Tasks</h2>
-        <div className="row todos">
+        <div className={`${styles.row} ${styles.todos}`}>
           {/* Displays incomplete tasks */}
           {incompleteTasks.map((task: Task) => (
-            <div className="col-12" key={task.id}>
+            <div className={styles.col_12} key={task.id}>
               <TaskCard
                 task={task}
-                setMessage={setMessage}
-                setMessageType={setMessageType}
-                setMessageKey={setMessageKey}
-                handleSeeSubtasks={(subtasks) => handleSeeSubtasks(subtasks, task)}
+                setMessage={props.setMessage}
+                setMessageType={props.setMessageType}
+                setMessageKey={props.setMessageKey}
+                handleSeeSubtasks={(subtasks) => props.handleSeeSubtasks(subtasks, task)}
               />
             </div>
           ))}
         </div>
       </div>
 
-      <div className="tasks-container">
+      <div className={styles.completedTasksContainer}>
         <h2>Completed Tasks</h2>
-        <div className="row todos">
+        <div className={`${styles.row} ${styles.todos}`}>
           {/* Displays completed tasks */}
           {completedTasks.map((task: Task) => (
-            <div className="col-12" key={task.id}>
+            <div className={styles.col_12} key={task.id}>
               <TaskCard
                 task={task}
-                setMessage={setMessage}
-                setMessageType={setMessageType}
-                setMessageKey={setMessageKey}
-                handleSeeSubtasks={handleSeeSubtasks}
+                setMessage={props.setMessage}
+                setMessageType={props.setMessageType}
+                setMessageKey={props.setMessageKey}
+                handleSeeSubtasks={props.handleSeeSubtasks}
               />
             </div>
           ))}
         </div>
       </div>
     </>
+
   );
 };
 

@@ -4,7 +4,7 @@
 * @return The configured Redux store.
 */
 import { configureStore, Store } from '@reduxjs/toolkit';
-import taskReducer from './reducers';
+import taskReducer from './taskSlice';
 import { addTask, updateTask, addSubtask, deleteTask } from './actions';
 import navigationReducer from './navigationSlice';
 

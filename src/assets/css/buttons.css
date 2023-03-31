@@ -2,20 +2,20 @@
 
 /* Common button styles */
 .button {
-    border-radius: 50px;
+    border-radius: 25px;
     color: #fff;
     cursor: pointer;
     font-size: 16px;
     padding: 10px 20px;
     border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.4s ease;
     width: 7rem;
     height: 5rem;
 }
 
 .button:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
     transform: translateY(-2px);
 }
 

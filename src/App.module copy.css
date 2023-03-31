@@ -49,43 +49,6 @@ body {
   grid-gap: 20px;
 }
 
-/* Task item */
-.todo-item {
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  background-color: var(--color-primary);
-  border-radius: 6px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
-  transition: background-color 0.3s ease;
-}
-
-.todo-item:hover {
-  background-color: var(--color-dark);
-}
-
-.todo-item input[type="checkbox"] {
-  appearance: none;
-  background-color: var(--color-light);
-  border: 2px solid var(--color-dark);
-  border-radius: 4px;
-  cursor: pointer;
-  display: inline-block;
-  height: 20px;
-  margin-right: 10px;
-  position: relative;
-  width: 20px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  min-width: 20px; /* Add this line */
-}
-
-
-.todo-item label {
-  font-size: 1.2rem;
-  color: var(--color-light);
-}
-
 /* Subtasks */
 .subtasks {
   margin-left: 20px;
@@ -213,7 +176,7 @@ body {
   opacity: 1;
 }
 
-/* Editable task label styles */
+/* Editable task label styles
 .editable-task-label {
   font-size: 1.1rem;
   color: var(--color-light);
@@ -230,14 +193,14 @@ body {
 .todo-item.completed label {
   text-decoration: line-through;
   color: var(--color-dark);
-  pointer-events: none; /* Add this line */
+  pointer-events: none;
 }
 
 .tasks-navigation {
   display: flex;
   align-items: center;
   gap: 20px;
-}
+} */
 
 
 .parent-task .task-card {

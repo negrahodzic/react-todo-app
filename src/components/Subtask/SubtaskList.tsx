@@ -1,7 +1,6 @@
-import React from 'react';
 import { Task } from '../../types/types';
 import { MessageType } from "../Message/Message";
-import TaskCard from '../Task/TaskCard';
+import TaskCard from '../TaskCard/TaskCard';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
@@ -14,21 +13,13 @@ interface SubtaskListProps {
   setMessageKey: (key: number) => void;
   handleSeeSubtasks: (subtasks: Task[]) => void;
 }
-
-const SubtaskList: React.FC<SubtaskListProps> = ({
-  subtasks,
-  parentTask,
-  setMessage,
-  setMessageType,
-  setMessageKey,
-  handleSeeSubtasks,
-}) => {
+function SubtaskList(props: SubtaskListProps) {
   // Fetch the updated task from the Redux store using its id
   const updatedTask = useSelector((state: RootState) =>
-    state.tasks.find((task: Task) => task.id === parentTask.id)
+    state.tasks.find((task: Task) => task.id === props.parentTask.id)
   );
 
-  const displayedSubtasks = updatedTask ? updatedTask.subtasks : subtasks;
+  const displayedSubtasks = updatedTask ? updatedTask.subtasks : props.subtasks;
 
   return (
     <ul className="subtasks">
@@ -36,10 +27,10 @@ const SubtaskList: React.FC<SubtaskListProps> = ({
         <li key={subtask.id}>
           <TaskCard
             task={subtask}
-            setMessage={setMessage}
-            setMessageType={setMessageType}
-            setMessageKey={setMessageKey}
-            handleSeeSubtasks={handleSeeSubtasks}
+            setMessage={props.setMessage}
+            setMessageType={props.setMessageType}
+            setMessageKey={props.setMessageKey}
+            handleSeeSubtasks={props.handleSeeSubtasks}
           />
         </li>
       ))}

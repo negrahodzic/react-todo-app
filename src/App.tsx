@@ -1,30 +1,32 @@
 /**
-The main component that serves as the entry point for the task management application.
-Displays the list of tasks and allows for creation, editing, and deletion of tasks.
-@returns JSX element that renders the task management application.
+* The main component that serves as the entry point for the task management application.
+* Displays the list of tasks and allows for creation, editing, and deletion of tasks.
+* @returns JSX element that renders the task management application.
 */
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Task } from './types/types';
 import { RootState } from './redux/store';
-import TaskList from './components/Task/TaskList';
-import TaskCard from './components/Task/TaskCard';
+import TaskList from './components/TaskList/TaskList';
+import TaskCard from './components/TaskCard/TaskCard';
 import TaskInput from './components/TaskInput/TaskInput';
 import Message, { MessageType } from "./components/Message/Message";
 import { findTaskById } from "./utils/taskUtils";
 import { setNavStack } from './redux/navigationSlice';
 
 // Importing CSS files
-import './App.css';
+import styles from './App.module.css';
 import './assets/css/buttons.css';
 import './assets/css/grid.css';
+import ParentTaskCard from './components/TaskCard/ParentTaskCard';
+
 function App() {
   // Getting the list of all tasks from the Redux store
   const tasks = useSelector((state: RootState) => state.tasks.tasks,);
-  
-  const { currentParent, currentTasks } = useSelector((state: RootState) => state.navigation);
+
+  const { currentParent } = useSelector((state: RootState) => state.navigation);
 
   // State variables for message and its type to display to the user
   const [message, setMessage] = useState("");
@@ -64,10 +66,10 @@ function App() {
 
 
   return (
-    <div className="todo-app-container">
+    <div className={styles.todoAppContainer}>
 
       {/* Render TaskInput component only when no current parent is present */}
-      {!currentParent && (<div className="add-task-wrapper">
+      {!currentParent && (<div className={styles.addTaskWrapper}>
         <TaskInput setMessage={setMessage} setMessageType={setMessageType} setMessageKey={setMessageKey} />
       </div>
       )}
@@ -77,22 +79,18 @@ function App() {
 
       {/* Render TaskCard component when current parent is present */}
       {currentParent && (
-        <div className="tasks-navigation">
-          <button className="button button-back" onClick={handleBack}>
-            Back
-          </button>
-          <div className="parent-task">
-            <TaskCard
-              className="task-card"
-              task={currentParent}
-              setMessage={setMessage}
-              setMessageType={setMessageType}
-              setMessageKey={setMessageKey}
-              handleSeeSubtasks={(subtasks) => handleSeeSubtasks(subtasks, currentParent)}
-              hideSeeSubtasksButton
-            />
-          </div>
+
+        <div className={styles.parentTask}>
+          <ParentTaskCard
+            task={currentParent}
+            handleBack={handleBack}
+            setMessage={setMessage}
+            setMessageType={setMessageType}
+            setMessageKey={setMessageKey}
+            handleSeeSubtasks={handleSeeSubtasks}
+          />
         </div>
+
       )}
 
       {/* Render TaskList component for all tasks */}

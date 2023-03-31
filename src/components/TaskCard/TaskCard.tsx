@@ -5,15 +5,16 @@ import { Task } from '../../types/types';
 import { updateTask, addSubtask, deleteTask } from '../../redux/store';
 import { validateTaskName, checkDuplicateTasks } from '../../utils/taskUtils';
 
-import SubtaskModal from '../Subtask/SubtaskModal';
-import TaskLabel from './TaskLabel';
-import TaskActions from './TaskActions';
+import SubtaskModal from '../SubtaskModal/SubtaskModal';
+import TaskLabel from '../TaskLabel/TaskLabel';
+import TaskActions from '../TaskActions/TaskActions';
 
 import { MessageType, showMessage } from "../Message/Message";
 
 import '../../assets/css/buttons.css';
 import '../../assets/css/grid.css';
 import '../TaskInput/TaskInput.css';
+import styles from './TaskCard.module.css';
 
 /**
  * Props for the TaskCard component.
@@ -123,8 +124,8 @@ function TaskCard(props: TaskCardProps) {
     };
 
     return (
-        <>
-            <div className={`todo-item ${props.className || ''} ${status ? 'completed' : ''}`}>
+        <div className={styles.taskContainer}>
+            <div className={`${styles.todoItem} ${props.className || ''} ${status ? styles.completed : ''}`}>
                 <input type="checkbox" id={`task-${id}`} checked={status} onChange={handleStatusChange} />
 
                 <TaskLabel
@@ -158,7 +159,7 @@ function TaskCard(props: TaskCardProps) {
                     handleCloseModal={handleCloseModal}
                 />
             )}
-        </>
+        </div>
     );
 };
 

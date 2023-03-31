@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './TaskLabel.module.css';
+
 interface TaskLabelProps {
     htmlFor: string;
     taskName: string;
@@ -18,7 +20,7 @@ function TaskLabel(props: TaskLabelProps) {
             {props.isEditing ? (
                 <input
                     type="text"
-                    className="editing-task-input"
+                    className={styles.editingTaskInput}
                     value={props.editedTaskName}
                     onBlur={props.handleSaveEdit}
                     onKeyDown={props.handleEditSubmit}
@@ -30,7 +32,7 @@ function TaskLabel(props: TaskLabelProps) {
             ) : (
                 <label
                     htmlFor={props.htmlFor}
-                    className={props.status ? '' : 'editable-task-label'}
+                    className={props.status ? '' : styles.editableTaskLabel}
                     onClick={() => !props.status && !props.isEditing && props.onLabelClick()}
                 >
                     {props.taskName}

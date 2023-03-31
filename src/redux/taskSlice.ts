@@ -2,11 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Task } from '../types/types';
 import { findTaskById, findParentTask, markAllSubtasksComplete, areAllSubtasksCompleted } from './utils';
 
-interface TaskState {
+interface TasksState {
     tasks: Task[];
 }
 
-const initialState: TaskState = {
+const initialState: TasksState = {
     tasks: JSON.parse(localStorage.getItem('tasks') || '[]'),
 };
 
@@ -22,7 +22,7 @@ const taskSlice = createSlice({
          * @param {TaskState} state - The current state of the tasks slice.
          * @param {PayloadAction<Task>} action - The Redux action containing the new task to add.
          */
-        addTask(state: TaskState, action: PayloadAction<Task>) {
+        addTask(state: TasksState, action: PayloadAction<Task>) {
             state.tasks.push(action.payload);
         },
         /**
@@ -30,7 +30,7 @@ const taskSlice = createSlice({
          * @param {TaskState} state - The current state of the tasks slice.
          * @param {PayloadAction<Task>} action - The Redux action containing the updated task.
          */
-        updateTask(state: TaskState, action: PayloadAction<Task>) {
+        updateTask(state: TasksState, action: PayloadAction<Task>) {
             const taskToUpdate = findTaskById(state.tasks, action.payload.id);
             if (taskToUpdate) {
                 taskToUpdate.status = action.payload.status;
@@ -54,7 +54,7 @@ const taskSlice = createSlice({
          * @param {TaskState} state - The current state of the tasks slice.
          * @param {PayloadAction<{ parentId: number; subtask: Task }>} action - The Redux action containing the parent task ID and the new subtask to add.
          */
-        addSubtask(state: TaskState, action: PayloadAction<{ parentId: number; subtask: Task }>) {
+        addSubtask(state: TasksState, action: PayloadAction<{ parentId: number; subtask: Task }>) {
             const { parentId, subtask } = action.payload;
             const parentTask = findTaskById(state.tasks, parentId);
             if (parentTask) {
@@ -66,7 +66,7 @@ const taskSlice = createSlice({
          * @param {TaskState} state - The current state of the tasks slice.
          * @param {PayloadAction<number>} action - The Redux action containing the ID of the task to delete.
          */
-        deleteTask(state: TaskState, action: PayloadAction<number>) {
+        deleteTask(state: TasksState, action: PayloadAction<number>) {
             const deleteTaskById = (tasks: Task[], taskId: number): Task[] => {
                 return tasks.filter(task => {
                     if (task.id === taskId) {

@@ -20,7 +20,7 @@ function TaskActions(props: TaskActionsProps) {
                     </button>
                     {props.task.subtasks.length > 0 && !props.hideSeeSubtasksButton && (
                         <button className="button button-details" onClick={() => props.handleSeeSubtasks(props.task.subtasks, props.task)}>
-                            See subtasks
+                            See subtasks ({props.task.subtasks.length})
                         </button>
                     )}
                 </>

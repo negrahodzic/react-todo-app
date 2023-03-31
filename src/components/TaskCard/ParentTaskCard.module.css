@@ -1,0 +1,23 @@
+.parentTaskCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.taskWrapper {
+  flex-grow: 1;
+  margin-left: 10px;
+  background-color: #ffe8c2;
+  border: 2px solid #d3ac74;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.taskWrapper:hover {
+  border-color: #b58b4c;
+}

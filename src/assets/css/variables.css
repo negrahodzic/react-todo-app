@@ -1,0 +1,29 @@
+/* variables.css */
+:root {
+    --color-primary: #6C63FF;
+    --color-secondary: #4C586F;
+    --color-tertiary: #F3F4F6;
+    --color-light: #CBC5C1;
+    --color-dark: #2A2E32;
+
+    --color-success: #0f8440;
+    --color-success-light: #2b9859;
+
+    --color-warning: #FFAB00;
+    --color-info: #0091EA;
+
+    --color-danger: #F44336;
+    --color-danger-light: #FF6659;
+
+    --color-details: #03A9F4;
+    --color-details-light: #67B3F0;
+
+    --color-add: #7acc8d;
+    --color-add-light: #c7eacf;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}

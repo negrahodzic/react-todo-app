@@ -1,0 +1,86 @@
+@import url('./variables.css');
+
+/* Common button styles */
+.button {
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    width: 7rem;
+    height: 5rem;
+}
+
+.button:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.button:focus {
+    outline: none;
+    box-shadow: 0 0 6px rgba(76, 88, 111, 0.5);
+}
+
+/* Specific button styles */
+.button-delete {
+    background-color: var(--color-danger);
+}
+
+.button-delete:hover {
+    background-color: var(--color-danger-light);
+}
+
+.button-details {
+    background-color: var(--color-info);
+}
+
+.button-details:hover {
+    background-color: var(--color-details-light);
+}
+
+.button-add {
+    background-color: var(--color-success);
+    font-size: 1rem;
+    margin-left: 10px;
+}
+
+.button-add:hover {
+    background-color: var(--color-success-light);
+}
+
+.button-back {
+    background-color: var(--color-tertiary);
+    color: var(--color-primary);
+}
+
+.button-back:hover {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: 12px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-group button {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    .button-group {
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-top: 0;
+    }
+}

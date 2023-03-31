@@ -1,0 +1,30 @@
+/* Message.module.css */
+.messageContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1rem;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 9999;
+}
+
+
+.messageContainer.visible {
+  opacity: 1;
+}
+
+.messageContainer.success {
+  background-color: green;
+}
+
+.messageContainer.error {
+  background-color: red;
+}
+
+.messageContainer.info {
+  background-color: yellow;
+}

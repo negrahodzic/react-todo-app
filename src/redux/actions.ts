@@ -1,4 +1,4 @@
-import { createAction, PayloadAction } from '@reduxjs/toolkit';
+import { createAction } from '@reduxjs/toolkit';
 import { Task } from '../types/types';
 
 export const addTask = createAction<Task>('tasks/addTask');

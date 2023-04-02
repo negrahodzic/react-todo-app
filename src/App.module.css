@@ -67,7 +67,13 @@ html {
 
 .background {
   z-index: -999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
 }
+
 
 .triangle {
   width: 0;
@@ -163,4 +169,52 @@ html {
   top: 50vh;
   left: -10vw;
   animation: clockwise-rotation 145s linear infinite;
+}
+
+/* Add this media query for small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+  .triangleContainer {
+    top: 5vh;
+    left: 30vw;
+    height: 800px;
+    width: 800px;
+  }
+
+  .triangle {
+    border-left: 250px solid transparent;
+    border-right: 250px solid transparent;
+    border-bottom: 433px solid #7CC7FF;
+  }
+
+  .innerTriangle {
+    left: -225px;
+    top: 15px;
+    border-left: 225px solid transparent;
+    border-right: 225px solid transparent;
+    border-bottom: 389.1px solid #F1F1F1;
+  }
+
+  .squareContainer {
+    top: -30%;
+    left: -5%;
+    height: 800px;
+    width: 800px;
+  }
+
+  .square {
+    width: 350px;
+    height: 350px;
+  }
+
+  .circleContainer {
+    top: 40vh;
+    left: -5vw;
+    height: 600px;
+    width: 600px;
+  }
+
+  .circle {
+    width: 450px;
+    height: 450px;
+  }
 }

@@ -1,16 +1,18 @@
 @import url('../../assets/css/variables.css');
 
+/* Task Input Wrapper */
+.task-input-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px; 
+}
+
 /* Task Input Container */
 .task-input {
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  position: fixed;
-  left: 50%;
-  top: 50px;
-  transform: translate(-50%, -50%); 
   background-color: var(--color-tertiary);
   padding: 10px;
   border-radius: 6px;

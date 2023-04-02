@@ -79,20 +79,22 @@ function TaskInput(props: TaskInputProps) {
     }
 
     return (
-        <div className="task-input">
-            <input
-                type="text"
-                className="task-input-field"
-                placeholder="Add your task"
-                value={task}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                autoFocus />
-            <button
-                className="button button-add"
-                onClick={handleAddTask}>
-                Add to todo
-            </button>
+        <div className="task-input-wrapper">
+            <div className="task-input">
+                <input
+                    type="text"
+                    className="task-input-field"
+                    placeholder="Add your task"
+                    value={task}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                    autoFocus />
+                <button
+                    className="button button-add"
+                    onClick={handleAddTask}>
+                    Add to todo
+                </button>
+            </div>
         </div>
     );
 };

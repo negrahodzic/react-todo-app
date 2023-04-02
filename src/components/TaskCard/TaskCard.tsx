@@ -126,20 +126,21 @@ function TaskCard(props: TaskCardProps) {
     return (
         <div className={styles.taskContainer}>
             <div className={`${styles.todoItem} ${props.className || ''} ${status ? styles.completed : ''}`}>
-                <input type="checkbox" id={`task-${id}`} checked={status} onChange={handleStatusChange} />
+                <div className={styles.checkboxAndLabel}>
+                    <input type="checkbox" id={`task-${id}`} checked={status} onChange={handleStatusChange} />
 
-                <TaskLabel
-                    htmlFor={`task-${id}`}
-                    taskName={taskName}
-                    editedTaskName={editedTaskName}
-                    status={status}
-                    isEditing={isEditing}
-                    onLabelClick={() => !status && setIsEditing(true)}
-                    setEditedTaskName={setEditedTaskName}
-                    handleSaveEdit={handleSaveEdit}
-                    handleEditSubmit={handleEditSubmit}
-                />
-
+                    <TaskLabel
+                        htmlFor={`task-${id}`}
+                        taskName={taskName}
+                        editedTaskName={editedTaskName}
+                        status={status}
+                        isEditing={isEditing}
+                        onLabelClick={() => !status && setIsEditing(true)}
+                        setEditedTaskName={setEditedTaskName}
+                        handleSaveEdit={handleSaveEdit}
+                        handleEditSubmit={handleEditSubmit}
+                    />
+                </div>
                 <TaskActions
                     className={styles.taskActionsHidden}
                     task={props.task}

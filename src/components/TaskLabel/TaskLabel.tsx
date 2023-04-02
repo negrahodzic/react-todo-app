@@ -16,7 +16,7 @@ interface TaskLabelProps {
 
 function TaskLabel(props: TaskLabelProps) {
     return (
-        <>
+        <div className={styles.taskLabel}>
             {props.isEditing ? (
                 <input
                     type="text"
@@ -38,7 +38,7 @@ function TaskLabel(props: TaskLabelProps) {
                     {props.taskName}
                 </label>
             )}
-        </>
+        </div>
     );
 };
 

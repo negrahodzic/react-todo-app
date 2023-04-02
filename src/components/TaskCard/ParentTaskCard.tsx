@@ -3,6 +3,7 @@ import React from 'react';
 import { Task } from '../../types/types';
 import styles from './ParentTaskCard.module.css';
 import { MessageType } from "../Message/Message";
+import '../../assets/css/buttons.css';
 
 interface ParentTaskCardProps {
   task: Task;
@@ -18,7 +19,7 @@ const ParentTaskCard: React.FC<ParentTaskCardProps> = (props) => {
 
   return (
     <div className={styles.parentTaskCard}>
-      <button className="button button-back" onClick={handleBack}>
+      <button className={styles.buttonBack} onClick={handleBack}>
         Back
       </button>
       <div className={styles.taskWrapper}>

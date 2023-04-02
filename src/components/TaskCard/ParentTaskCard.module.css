@@ -1,23 +1,50 @@
+/* ParentTaskCard.module.css */
 .parentTaskCard {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
+  margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
 }
 
+.buttonBack {
+  background-color: #68b0ab;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 20px;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease;
+}
+
+.buttonBack:hover {
+  background-color: #4c8075;
+}
+
 .taskWrapper {
   flex-grow: 1;
+  max-width: calc(100% - 20px - 10px - 2px); /* Subtract button width, margin-right, and border */
   margin-left: 10px;
   background-color: #ffe8c2;
   border: 2px solid #d3ac74;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-family: "Courier New", Courier, monospace;
 }
 
+.taskWrapper h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4c4c4c;
+  margin: 0;
+}
+
 .taskWrapper:hover {
   border-color: #b58b4c;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }

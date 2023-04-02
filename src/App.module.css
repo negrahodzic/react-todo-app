@@ -5,9 +5,31 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 40px;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   color: red !important;
+  max-height: 100vh;
+  min-width: 100vw;
+  overflow-y: auto;
 }
+
+.todoItem .taskActionsWrapper {
+  padding: 10px;
+}
+
+.todoAppContainer::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F1F1F1;
+}
+
+.todoAppContainer::-webkit-scrollbar-thumb {
+  background-color: #776c6c;
+  border-radius: 5px;
+}
+
+.todoAppContainer::-webkit-scrollbar-track {
+  background-color: #F1F1F1;
+}
+
 
 .addTaskWrapper {
   width: 100%;
@@ -33,4 +55,112 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-top: -60px;
   margin-bottom: 30px;
+}
+
+/* BACKGROUND */
+
+html {
+  background: #F1F1F1;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background {
+  z-index: -999;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 350px solid transparent;
+  border-right: 350px solid transparent;
+  border-bottom: 606.2px solid #7CC7FF;
+}
+
+.innerTriangle {
+  position: relative;
+  left: -325px;
+  top: 30px;
+  width: 0;
+  height: 0;
+  border-left: 325px solid transparent;
+  border-right: 325px solid transparent;
+  border-bottom: 562.9px solid #F1F1F1;
+}
+
+.triangle {
+  animation: clockwise-rotation 120s linear infinite;
+}
+
+.triangleContainer {
+  z-index: -999;
+  height: 1200px;
+  width: 1200px;
+  position: absolute;
+  top: 10vh;
+  left: 60vw;
+  animation: clockwise-rotation 130s linear infinite;
+}
+
+@keyframes clockwise-rotation {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counterclockwise-rotation {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.square {
+  width: 550px;
+  height: 550px;
+  border: 15px solid #FDD600;
+  animation: counterclockwise-rotation 140s linear infinite;
+}
+
+.squareContainer {
+  /*   background: #ff00ff; */
+  height: 1200px;
+  width: 1200px;
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  animation: counterclockwise-rotation 155s linear infinite;
+}
+
+@keyframes circle-self-rotation {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.circle {
+  width: 650px;
+  height: 650px;
+  border: 15px solid #6EEDD8;
+  border-radius: 100%;
+}
+
+.circleContainer {
+  height: 900px;
+  width: 900px;
+  position: absolute;
+  top: 50vh;
+  left: -10vw;
+  animation: clockwise-rotation 145s linear infinite;
 }

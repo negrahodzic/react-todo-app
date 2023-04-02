@@ -141,6 +141,7 @@ function TaskCard(props: TaskCardProps) {
                 />
 
                 <TaskActions
+                    className={styles.taskActionsHidden}
                     task={props.task}
                     handleOpenModal={handleOpenModal}
                     handleDeleteTask={handleDeleteTask}

@@ -43,8 +43,11 @@ const navigationSlice = createSlice({
         state.currentTasks = state.navStack[state.navStack.length - 1].tasks;
       }
     },
+    setCurrentTasks(state, action: PayloadAction<Task[]>) {
+      state.currentTasks = action.payload;
+    },
   },
 });
 
-export const { setNavStack } = navigationSlice.actions;
+export const { setNavStack, setCurrentTasks } = navigationSlice.actions;
 export default navigationSlice.reducer;

@@ -31,17 +31,21 @@ function TaskList(props: TaskListProps) {
         <h2>Incomplete Tasks</h2>
         <div className={`${styles.row} ${styles.todos}`}>
           {/* Displays incomplete tasks */}
-          {incompleteTasks.map((task: Task) => (
-            <div className={styles.col_12} key={task.id}>
-              <TaskCard
-                task={task}
-                setMessage={props.setMessage}
-                setMessageType={props.setMessageType}
-                setMessageKey={props.setMessageKey}
-                handleSeeSubtasks={(subtasks) => props.handleSeeSubtasks(subtasks, task)}
-              />
-            </div>
-          ))}
+          {incompleteTasks.length > 0 ? (
+            incompleteTasks.map((task: Task) => (
+              <div className={styles.col_12} key={task.id}>
+                <TaskCard
+                  task={task}
+                  setMessage={props.setMessage}
+                  setMessageType={props.setMessageType}
+                  setMessageKey={props.setMessageKey}
+                  handleSeeSubtasks={(subtasks) => props.handleSeeSubtasks(subtasks, task)}
+                />
+              </div>
+            ))
+          ) : (
+            <div className={styles.noTasks}>You don't have any tasks yet.</div>
+          )}
         </div>
       </div>
 
@@ -49,22 +53,26 @@ function TaskList(props: TaskListProps) {
         <h2>Completed Tasks</h2>
         <div className={`${styles.row} ${styles.todos}`}>
           {/* Displays completed tasks */}
-          {completedTasks.map((task: Task) => (
-            <div className={styles.col_12} key={task.id}>
-              <TaskCard
-                task={task}
-                setMessage={props.setMessage}
-                setMessageType={props.setMessageType}
-                setMessageKey={props.setMessageKey}
-                handleSeeSubtasks={props.handleSeeSubtasks}
-              />
-            </div>
-          ))}
+          {completedTasks.length > 0 ? (
+            completedTasks.map((task: Task) => (
+              <div className={styles.col_12} key={task.id}>
+                <TaskCard
+                  task={task}
+                  setMessage={props.setMessage}
+                  setMessageType={props.setMessageType}
+                  setMessageKey={props.setMessageKey}
+                  handleSeeSubtasks={props.handleSeeSubtasks}
+                />
+              </div>
+            ))
+          ) : (
+            <div className={styles.noTasks}>You didn't complete any task yet.</div>
+          )}
         </div>
       </div>
     </>
-
   );
 };
+
 
 export default TaskList;

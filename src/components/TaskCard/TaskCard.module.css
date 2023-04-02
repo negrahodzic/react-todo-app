@@ -4,7 +4,7 @@
     justify-content: space-between;
     background-color: #f9f9f9;
     border-radius: 5px;
-    padding: 10px;
+    /* padding: 10px; */
     margin-bottom: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -36,7 +36,8 @@
     cursor: pointer;
     display: inline-block;
     height: 20px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    margin: 10px;
     position: relative;
     width: 20px;
     transition: backgroundColor 0.3s ease, borderColor 0.3s ease;
@@ -73,6 +74,7 @@
     text-decoration: line-through;
     color: var(--color-dark);
     pointer-events: none;
+    padding: 10px 0;
 }
 
 /* Editing task input styles */
@@ -98,4 +100,12 @@
 .editingTaskInput::placeholder {
     color: var(--color-primary);
     opacity: 1;
+}
+
+.taskActionsHidden {
+    display: none;
+}
+
+.taskContainer:hover .taskActionsHidden {
+    display: block;
 }

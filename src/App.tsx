@@ -25,8 +25,6 @@ function App() {
   // Getting the list of all tasks from the Redux store
   const tasks = useSelector((state: RootState) => state.tasks.tasks,);
   const { currentParent, currentTasks } = useSelector((state: RootState) => state.navigation);
-  // const dispatch = useDispatch();
-  // const { currentParent } = useSelector((state: RootState) => state.navigation);
 
   // State variables for message and its type to display to the user
   const [message, setMessage] = useState("");
@@ -73,8 +71,6 @@ function App() {
     newNavStack.pop();
     dispatch(setNavStack(newNavStack));
   };
-
-
 
   return (
     <div className={styles.todoAppContainer}>

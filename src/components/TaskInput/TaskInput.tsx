@@ -92,7 +92,7 @@ function TaskInput(props: TaskInputProps) {
                 <button
                     className="button button-add"
                     onClick={handleAddTask}>
-                    Add to todo
+                    Add task
                 </button>
             </div>
         </div>

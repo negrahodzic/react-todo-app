@@ -6,11 +6,9 @@ import { Task } from '../../types/types';
 
 import SubtaskModal from '../SubtaskModal/SubtaskModal';
 import styles from './ParentTaskCard.module.css';
-import { MessageType, showMessage} from "../Message/Message";
+import { MessageType, showMessage } from "../Message/Message";
 import { addSubtask } from '../../redux/store';
 import { validateTaskName, checkDuplicateTasks } from '../../utils/taskUtils';
-
-import '../../assets/css/buttons.css';
 
 interface ParentTaskCardProps {
   task: Task;
@@ -84,14 +82,16 @@ const ParentTaskCard: React.FC<ParentTaskCardProps> = (props) => {
 
   return (
     <div className={styles.parentTaskCard}>
-      <button className={styles.buttonBack} onClick={props.handleBack}>
-        Back
-      </button>
-      {!props.task.status && (
-        <button className="button button-add" onClick={handleOpenModal}>
-          Add subtask
+      <div className={styles.buttonContainer}>
+        <button className={`${styles.button} ${styles.commonParentTaskButton} ${styles.btnBack}`} onClick={props.handleBack}>
+          Back
         </button>
-      )}
+        {!props.task.status && (
+          <button className={`${styles.commonParentTaskButton} ${styles.btnAdd}`} onClick={handleOpenModal}>
+            Add subtask
+          </button>
+        )}
+      </div>
       <div className={styles.taskWrapper}>
         <h2>{props.task.taskName}</h2>
       </div>
@@ -108,5 +108,6 @@ const ParentTaskCard: React.FC<ParentTaskCardProps> = (props) => {
     </div>
   );
 };
+
 
 export default ParentTaskCard;

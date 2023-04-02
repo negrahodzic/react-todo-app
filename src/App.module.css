@@ -59,9 +59,15 @@
 
 /* BACKGROUND */
 
-html {
+/* html {
   background: #F1F1F1;
-  height: 100vh;
+  height: 100%;
+  overflow-y: auto;
+} */
+
+body {
+  background: #F1F1F1;
+  height: 100%;
   overflow: hidden;
 }
 
